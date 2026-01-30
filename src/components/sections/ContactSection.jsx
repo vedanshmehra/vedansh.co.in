@@ -62,9 +62,10 @@ export default function ContactSection() {
         }
     };
 
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/vedanshmehra', endpoint: '/api/linkedin' },
-    { name: 'Email', icon: '📧', url: 'mailto:vedanshmehra1999@gmail.com', endpoint: '/api/email' },
-    { name: 'Location', icon: '📍', url: 'https://www.google.com/maps/place/New+Delhi', endpoint: 'New Delhi, India' }
+    const socialLinks = [
+        { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/vedanshmehra', endpoint: '/api/linkedin' },
+        { name: 'Email', icon: '📧', url: 'mailto:vedanshmehra1999@gmail.com', endpoint: '/api/email' },
+        { name: 'Location', icon: '📍', url: 'https://www.google.com/maps/place/New+Delhi', endpoint: 'New Delhi, India' }
     ];
 
     return (
