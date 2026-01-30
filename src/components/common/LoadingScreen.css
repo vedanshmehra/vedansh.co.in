@@ -1,0 +1,290 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--gradient-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-loading);
+    overflow: hidden;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    z-index: 2;
+    padding: var(--spacing-lg);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Logo */
+.loading-logo {
+    position: relative;
+}
+
+.logo-cloud {
+    font-size: 4rem;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo-icon {
+    display: block;
+    filter: drop-shadow(0 0 20px var(--color-accent-cyan));
+}
+
+.logo-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-accent-cyan) 0%, transparent 70%);
+    animation: pulse-expand 2s ease-out infinite;
+}
+
+@keyframes pulse-expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Title */
+.loading-title {
+    text-align: center;
+    font-family: var(--font-mono);
+    margin: 0;
+}
+
+.title-text {
+    display: block;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.title-accent {
+    display: block;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    background: linear-gradient(135deg, var(--color-accent-orange), var(--color-accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.1em;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    background: rgba(26, 31, 58, 0.5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.service-item.active {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: var(--color-accent-cyan);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+}
+
+.service-icon {
+    font-size: 1.5rem;
+}
+
+.service-name {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.service-item.active .service-name {
+    color: var(--color-accent-cyan);
+}
+
+.service-status {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-text-muted);
+}
+
+.service-status.online {
+    background: var(--color-accent-green);
+    box-shadow: 0 0 8px var(--color-accent-green);
+    animation: pulse 1s infinite;
+}
+
+/* Progress Bar */
+.loading-progress {
+    width: 100%;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-track {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-green));
+    border-radius: var(--radius-full);
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, white);
+    opacity: 0.5;
+    animation: shimmer 1s infinite;
+}
+
+/* Terminal */
+.loading-terminal {
+    width: 100%;
+    background: rgba(10, 14, 39, 0.9);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(26, 31, 58, 0.8);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.terminal-dot.red {
+    background: #FF5F56;
+}
+
+.terminal-dot.yellow {
+    background: #FFBD2E;
+}
+
+.terminal-dot.green {
+    background: #27CA40;
+}
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+}
+
+.terminal-body {
+    padding: var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.8;
+    min-height: 150px;
+}
+
+.log-line {
+    color: var(--color-text-secondary);
+}
+
+.log-line.success {
+    color: var(--color-accent-green);
+}
+
+.log-line.complete {
+    color: var(--color-accent-cyan);
+    font-weight: 600;
+}
+
+.cursor {
+    display: inline-block;
+    color: var(--color-accent-cyan);
+    animation: blink 1s step-end infinite;
+}
+
+/* Background Effects */
+.loading-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-cyan), transparent);
+    opacity: 0.5;
+    animation: scan 3s linear infinite;
+}
