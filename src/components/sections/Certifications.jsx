@@ -184,16 +184,7 @@ Resources:
       Status: Available`}
                             </pre>
                         </div>
-                        <motion.a
-                            href="/Vedansh-Cloud DevOps Engineer Resume.pdf"
-                            download="Vedansh_Mehra_Cloud_DevOps_Engineer_Resume.pdf"
-                            className="download-btn"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <span className="btn-icon">⬇️</span>
-                            <span className="btn-text">Download Resume (PDF)</span>
-                        </motion.a>
+
                     </div>
                 </motion.div>
             </div>
