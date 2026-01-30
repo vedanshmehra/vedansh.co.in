@@ -166,29 +166,12 @@ export default function HeroSection() {
                         >
                             Deploy Connection
                         </GlowButton>
-                        <GlowButton
-                            variant="outline"
-                            size="large"
-                            icon="📄"
-                            onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
-                        >
-                            Launch Interview Protocol
-                        </GlowButton>
+
                     </motion.div>
                 </motion.div>
 
                 {/* Scroll Indicator */}
-                <motion.div
-                    className="scroll-indicator"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2 }}
-                >
-                    <div className="scroll-mouse">
-                        <div className="scroll-wheel"></div>
-                    </div>
-                    <span className="scroll-text">Scroll to explore</span>
-                </motion.div>
+
             </div>
         </section>
     );
