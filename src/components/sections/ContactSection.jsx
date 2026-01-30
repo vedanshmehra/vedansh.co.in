@@ -30,21 +30,17 @@ export default function ContactSection() {
         setSubmitStatus('sending');
         setPacketAnimation(true);
 
-        // Simulate packet transmission animation
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
         try {
-            // Create mailto link with form data
-            const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
-            const body = encodeURIComponent(
-                `Name: ${formData.name}\n` +
-                `Email: ${formData.email}\n` +
-                `\nMessage:\n${formData.message}\n` +
-                `\n---\nSent from Portfolio Website`
-            );
+            // API call to Netlify Function
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-            // Open email client with pre-filled data
-            window.location.href = `mailto:vedanshmehra1999@gmail.com?subject=${subject}&body=${body}`;
+            if (!response.ok) throw new Error('Network response was not ok');
 
             setSubmitStatus('success');
 
