@@ -1,4 +1,5 @@
 import './Footer.css';
+import brandLogo from '../../assets/web-logo.png';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="footer-brand">
                         <div className="brand-logo">
-                            <span className="logo-icon">☁️</span>
+                            <img src={brandLogo} alt="Logo" className="logo-image" />
                             <span className="logo-text">VEDANSH<span className="accent"> MEHRA</span></span>
                         </div>
                         <p className="brand-tagline">
@@ -69,11 +70,7 @@ export default function Footer() {
                         <span>© {currentYear} Vedansh Mehra - Cloud DevOps Engineer. All rights reserved.</span>
                     </div>
                     <div className="footer-meta">
-                        <span className="meta-item">Built with React</span>
-                        <span className="meta-separator">•</span>
                         <span className="meta-item">Deployed on Cloud</span>
-                        <span className="meta-separator">•</span>
-                        <span className="meta-item">❤️ Open Source</span>
                     </div>
                 </div>
             </div>

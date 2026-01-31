@@ -61,6 +61,9 @@ export default function CPUMonitor() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 2, duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
+            drag
+            dragMomentum={false}
+            whileDrag={{ scale: 1.1, cursor: 'grabbing' }}
         >
             <div className="monitor-header">
                 <span className="monitor-title">SYS_MONITOR</span>

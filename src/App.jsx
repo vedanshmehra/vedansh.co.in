@@ -143,10 +143,11 @@ click "Deploy Connection" to get started!
 
                     {/* Achievement Notifications */}
                     <AnimatePresence>
-                        {notifications.map((notification) => (
+                        {notifications.map((notification, index) => (
                             <AchievementNotification
                                 key={notification.id}
                                 achievement={notification}
+                                index={index}
                                 onDismiss={() => dismissNotification(notification.id)}
                             />
                         ))}

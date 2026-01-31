@@ -32,6 +32,13 @@
     gap: var(--spacing-sm);
 }
 
+.brand-logo .logo-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    mix-blend-mode: screen;
+}
+
 .brand-logo .logo-icon {
     font-size: 1.5rem;
 }

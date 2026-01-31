@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useGame } from '../../context/GameContext';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 import './Navbar.css';
+import brandLogo from '../../assets/web-logo.png';
 
 const navLinks = [
     { id: 'hero', label: 'Mission Control', icon: '🎯' },
@@ -57,7 +58,7 @@ export default function Navbar() {
                 <div className="navbar-container">
                     {/* Logo */}
                     <div className="navbar-logo" onClick={() => scrollToSection('hero')}>
-                        <span className="logo-icon">☁️</span>
+                        <img src={brandLogo} alt="Logo" className="logo-image" />
                         <span className="logo-text">VEDANSH<span className="logo-accent">.</span></span>
                     </div>
 

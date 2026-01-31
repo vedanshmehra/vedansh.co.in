@@ -38,8 +38,14 @@ export function GameProvider({ children }) {
     const { level, progress } = calculateLevel(totalXP);
 
     const addNotification = useCallback((achievement) => {
-        const id = Date.now();
-        setNotifications(prev => [...prev, { ...achievement, id }]);
+        // Use achievement ID to prevent duplicates
+        const id = achievement.id;
+
+        setNotifications(prev => {
+            // Prevent duplicate notifications for the same achievement
+            if (prev.some(n => n.id === id)) return prev;
+            return [...prev, { ...achievement, id }];
+        });
 
         // Auto-remove notification after 5 seconds
         setTimeout(() => {
@@ -52,21 +58,25 @@ export function GameProvider({ children }) {
     }, []);
 
     const unlockAchievement = useCallback((achievementId) => {
-        setAchievements(prev => {
-            const achievement = prev.find(a => a.id === achievementId);
-            if (!achievement || achievement.unlocked) return prev;
+        // Check current state to see if already unlocked
+        // Note: We need 'achievements' in dependency array for this to work correctly
+        const achievement = achievements.find(a => a.id === achievementId);
 
-            // Add XP
-            setTotalXP(xp => xp + achievement.xp);
+        if (!achievement || achievement.unlocked) return;
 
-            // Show notification
-            addNotification(achievement);
+        // Add XP
+        setTotalXP(prevTotal => prevTotal + achievement.xp);
 
-            return prev.map(a =>
+        // Show notification
+        addNotification(achievement);
+
+        // Update achievement state
+        setAchievements(prev =>
+            prev.map(a =>
                 a.id === achievementId ? { ...a, unlocked: true } : a
-            );
-        });
-    }, [addNotification]);
+            )
+        );
+    }, [achievements, addNotification]);
 
     const visitSection = useCallback((sectionId) => {
         setSectionsVisited(prev => {

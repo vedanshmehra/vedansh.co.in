@@ -44,10 +44,11 @@ export default function AchievementBadge({
     );
 }
 
-export function AchievementNotification({ achievement, onDismiss }) {
+export function AchievementNotification({ achievement, onDismiss, index = 0 }) {
     return (
         <motion.div
             className="achievement-notification"
+            style={{ top: `calc(var(--spacing-lg) + ${index * 110}px)` }}
             initial={{ x: 400, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 400, opacity: 0 }}

@@ -39,6 +39,8 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: var(--spacing-sm) var(--spacing-lg);
+    gap: var(--spacing-md);
+    /* Ensure separation between sections */
 }
 
 /* Logo */
@@ -52,6 +54,15 @@
 
 .navbar-logo:hover {
     transform: scale(1.05);
+}
+
+.navbar-logo .logo-image {
+    width: 50px;
+    /* Adjusted size */
+    height: 50px;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    /* Removes black background */
 }
 
 .logo-icon {
@@ -90,6 +101,8 @@
     cursor: pointer;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
+    white-space: nowrap;
+    /* Prevent text wrapping */
 }
 
 .nav-link:hover {
@@ -180,6 +193,8 @@
     font-size: 0.75rem;
     cursor: pointer;
     transition: all var(--transition-fast);
+    white-space: nowrap;
+    /* Prevent text wrapping */
 }
 
 .region-toggle:hover {
